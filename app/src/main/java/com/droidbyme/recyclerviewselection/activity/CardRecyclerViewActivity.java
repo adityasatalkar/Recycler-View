@@ -8,7 +8,6 @@ import android.view.MenuItem;
 
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.adapter.CardAdapter;
-import com.droidbyme.recyclerviewselection.adapter.PlanetAdapter;
 import com.droidbyme.recyclerviewselection.model.Planet;
 
 import java.util.ArrayList;

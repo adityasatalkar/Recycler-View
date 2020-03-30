@@ -14,25 +14,25 @@ import com.droidbyme.recyclerviewselection.model.Planet;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetHolder> {
+public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
 
     private Context context;
     private ArrayList<Planet> planets;
 
-    public PlanetAdapter(Context context, ArrayList<Planet> planets) {
+    public DataAdapter(Context context, ArrayList<Planet> planets) {
         this.context = context;
         this.planets = planets;
     }
 
     @NonNull
     @Override
-    public PlanetHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public DataHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_planet, parent, false);
-        return new PlanetHolder(view);
+        return new DataHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanetHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DataHolder holder, int position) {
         Planet planet = planets.get(position);
         holder.setDetails(planet);
     }
@@ -42,23 +42,23 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetHold
         return planets.size();
     }
 
-    class PlanetHolder extends RecyclerView.ViewHolder {
+    class DataHolder extends RecyclerView.ViewHolder {
 
-        private TextView txtName, txtDistance, txtGravity, txtDiameter;
+        private TextView txtName, txtConfirmed, txtHospitalized, txtDeceased;
 
-        PlanetHolder(View itemView) {
+        DataHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
-            txtDistance = itemView.findViewById(R.id.txtDistance);
-            txtGravity = itemView.findViewById(R.id.txtGravity);
-            txtDiameter = itemView.findViewById(R.id.txtDiameter);
+            txtConfirmed = itemView.findViewById(R.id.txtDistance);
+            txtHospitalized = itemView.findViewById(R.id.txtGravity);
+            txtDeceased = itemView.findViewById(R.id.txtDiameter);
         }
 
         void setDetails(Planet planet) {
             txtName.setText(planet.getPlanetName());
-            txtDistance.setText(String.format(Locale.US, "Distance from Sun : %d Million KM", planet.getDistanceFromSun()));
-            txtGravity.setText(String.format(Locale.US, "Surface Gravity : %d N/kg", planet.getGravity()));
-            txtDiameter.setText(String.format(Locale.US, "Diameter : %d KM", planet.getDiameter()));
+            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getDistanceFromSun()));
+            txtHospitalized.setText(String.format(Locale.US, "Hospitalized : %d", planet.getGravity()));
+            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDiameter()));
         }
     }
 }
