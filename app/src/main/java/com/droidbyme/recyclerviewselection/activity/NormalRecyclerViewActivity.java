@@ -9,9 +9,14 @@ import android.view.MenuItem;
 
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.adapter.PlanetAdapter;
+import com.droidbyme.recyclerviewselection.model.Data;
 import com.droidbyme.recyclerviewselection.model.Planet;
+import com.droidbyme.recyclerviewselection.model.Statewise;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NormalRecyclerViewActivity extends AppCompatActivity {
 
@@ -24,7 +29,6 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal);
         initView();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Recycler View");
     }
@@ -40,6 +44,14 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
     }
 
     private void createListData() {
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        String jsonString = ApiCall.getDataFromApi(ApiCall.DATA_URL);
+//        Data data = gson.fromJson(jsonString, Data.class);
+//        List<Statewise> statewiseList = data.getStatewise();
+//        for (Statewise stateWiseObject: statewiseList) {
+//            Planet planet = new Planet(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()),Integer.parseInt(stateWiseObject.getDeaths()));
+//            planetArrayList.add(planet);
+//        }
         Planet planet = new Planet("Earth", 150, 10, 12750);
         planetArrayList.add(planet);
         planet = new Planet("Jupiter", 778, 26, 143000);
