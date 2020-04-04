@@ -18,6 +18,9 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.droidbyme.recyclerviewselection.activity.MainActivity.getData;
+import static com.droidbyme.recyclerviewselection.activity.MainActivity.getDistrictWiseData;
+
 public class NormalRecyclerViewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -49,32 +52,14 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
     }
 
     private void createListData() throws Exception {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String jsonString = ApiCall.getDataFromApi(ApiCall.DATA_URL);
-        Data data = gson.fromJson(jsonString, Data.class);
+        Data data = getData();
         List<Statewise> statewiseList = data.getStatewise();
+
         for (Statewise stateWiseObject: statewiseList) {
             Planet planet = new Planet(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()), Integer.parseInt(stateWiseObject.getRecovered()),Integer.parseInt(stateWiseObject.getDeaths()));
+            //DistrictWise districtWiseObject = getDistrictWiseData(stateWiseObject.getState());
             planetArrayList.add(planet);
         }
-//        Planet planet = new Planet("Earth", 150, 10, 12750);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Jupiter", 778, 26, 143000);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Mars", 228, 4, 6800);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Pluto", 5900, 1, 2320);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Venus", 108, 9, 12750);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Saturn", 1429, 11, 120000);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Mercury", 58, 4, 4900);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Neptune", 4500, 12, 50500);
-//        planetArrayList.add(planet);
-//        planet = new Planet("Uranus", 2870, 9, 52400);
-//        planetArrayList.add(planet);
         adapter.notifyDataSetChanged();
     }
 

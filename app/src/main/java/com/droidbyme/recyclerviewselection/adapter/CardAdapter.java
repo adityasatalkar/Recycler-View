@@ -44,21 +44,23 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.PlanetHolder> 
 
     class PlanetHolder extends RecyclerView.ViewHolder {
 
-        private TextView txtName, txtDistance, txtGravity, txtDiameter;
+        private TextView txtName, txtConfirmed, txtActive, txtRecovered, txtDeceased;
 
         PlanetHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
-            txtDistance = itemView.findViewById(R.id.txtDistance);
-            txtGravity = itemView.findViewById(R.id.txtGravity);
-            txtDiameter = itemView.findViewById(R.id.txtDiameter);
+            txtConfirmed = itemView.findViewById(R.id.txtConfirmed);
+            txtActive = itemView.findViewById(R.id.txtActive);
+            txtRecovered = itemView.findViewById(R.id.txtRecovered);
+            txtDeceased = itemView.findViewById(R.id.txtDeceased);
         }
 
         void setDetails(Planet planet) {
             txtName.setText(planet.getStateName());
-            txtDistance.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
-            txtGravity.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
-            txtDiameter.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
+            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
+            txtActive.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
+            txtRecovered.setText(String.format(Locale.US, "Recovered : %d", planet.getRecovered()));
+            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
         }
     }
 }

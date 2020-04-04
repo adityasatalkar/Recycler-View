@@ -14,19 +14,25 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtDistance"
+        android:id="@+id/txtConfirmed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp" />
 
     <TextView
-        android:id="@+id/txtGravity"
+        android:id="@+id/txtActive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp" />
 
     <TextView
-        android:id="@+id/txtDiameter"
+        android:id="@+id/txtRecovered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp" />
+
+    <TextView
+        android:id="@+id/txtDeceased"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp" />

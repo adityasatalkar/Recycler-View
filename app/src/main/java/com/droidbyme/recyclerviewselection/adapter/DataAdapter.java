@@ -44,20 +44,22 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
 
     class DataHolder extends RecyclerView.ViewHolder {
 
-        private TextView txtName, txtConfirmed, txtHospitalized, txtDeceased;
+        private TextView txtName, txtConfirmed, txtActive, txtRecovered, txtDeceased;
 
         DataHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
-            txtConfirmed = itemView.findViewById(R.id.txtDistance);
-            txtHospitalized = itemView.findViewById(R.id.txtGravity);
-            txtDeceased = itemView.findViewById(R.id.txtDiameter);
+            txtConfirmed = itemView.findViewById(R.id.txtConfirmed);
+            txtActive = itemView.findViewById(R.id.txtActive);
+            txtRecovered = itemView.findViewById(R.id.txtRecovered);
+            txtDeceased = itemView.findViewById(R.id.txtDeceased);
         }
 
         void setDetails(Planet planet) {
             txtName.setText(planet.getStateName());
             txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
-            txtHospitalized.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
+            txtActive.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
+            txtRecovered.setText(String.format(Locale.US, "Recovered : %d", planet.getRecovered()));
             txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
         }
     }
