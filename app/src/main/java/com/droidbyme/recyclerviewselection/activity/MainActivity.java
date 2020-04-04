@@ -13,9 +13,14 @@ import com.droidbyme.recyclerviewselection.model.Statewise;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static HashMap<String, List<String>> stateNamesHashMap = new HashMap<>();
+    public static HashMap<String, Integer> districtNamesHashMap = new HashMap<>();
 
     public static final String HOSPITALIZED = "Hospitalized";
     public static final String RECOVERED = "Recovered";
@@ -39,8 +44,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            initView();
-            tryTheApi();
+            try {
+                initView();
+                tryTheApi();
+                Data data = getData();
+            }
+            catch (Exception e) {}
+            startActivity(new Intent(MainActivity.this, NormalRecyclerViewActivity.class));
         }
 
         btnCardView.setOnClickListener(this);
@@ -111,5 +121,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static Data getData() throws Exception {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        String jsonString = ApiCall.getDataFromApi(ApiCall.DATA_URL);
+
+        Data data = gson.fromJson(jsonString, Data.class);
+
+        return data;
+    }
+
+    public static DistrictWise getDistrictWiseData(String state) throws Exception {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = "{\"districtWise\":" + ApiCall.getDataFromApi(ApiCall.STATE_DISTRICT_WISE_V2_URL) + "}";
+
+        StateDistrictWise stateDistrictWise = gson.fromJson(jsonString, StateDistrictWise.class);
+        List<DistrictWise> districtWiseList = stateDistrictWise.getDistrictWise();
+        for (DistrictWise districtWiseObject: districtWiseList) {
+            if (districtWiseObject.getState().equalsIgnoreCase(state)) {
+                return districtWiseObject;
+            }
+        }
+        return null;
+    }
+
+    public static void printAll(Data data) {
+        List<Statewise> statewiseList = data.getStatewise();
+
+        try {
+            for (Statewise stateWiseObject : statewiseList) {
+
+                System.out.println("*********");
+                System.out.println("State " + stateWiseObject.getState());
+                System.out.println(CONFIRMED + " " + stateWiseObject.getConfirmed());
+                System.out.println(HOSPITALIZED + " " + stateWiseObject.getActive());
+                System.out.println(RECOVERED + " " + stateWiseObject.getRecovered());
+                System.out.println(DECEASED + " " + stateWiseObject.getDeaths());
+
+                //printData(districtWiseObject);
+                DistrictWise districtWiseObject = getDistrictWiseData(stateWiseObject.getState());
+                if (!stateWiseObject.getState().equalsIgnoreCase("Total")) {
+                    System.out.println();
+                    try {
+                        List<DistrictDatum> districtDataList = districtWiseObject.getDistrictData();
+                        Collections.sort(districtDataList, DistrictDatum.DistrictConfirmedComparatorDescendingOrder);
+                        for (DistrictDatum districtDatumObject : districtDataList) {
+                            System.out.println(districtDatumObject.getDistrict() + " " + districtDatumObject.getConfirmed());
+                        }
+                    }
+                    catch (NullPointerException ne) {}
+                }
+                System.out.println();
+            }
+        }
+        catch (Exception e) {}
+        System.out.println();
     }
 }
