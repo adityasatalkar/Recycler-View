@@ -2,47 +2,57 @@ package com.droidbyme.recyclerviewselection.model;
 
 public class Planet {
 
-    private String planetName;
-    private int distanceFromSun;
-    private int gravity;
-    private int diameter;
+    private String stateName;
+    private int confirmed;
+    private int active;
+    private int recovered;
+    private int deceased;
 
-    public Planet(String planetName, int distanceFromSun, int gravity, int diameter) {
-        this.planetName = planetName;
-        this.distanceFromSun = distanceFromSun;
-        this.gravity = gravity;
-        this.diameter = diameter;
+    public Planet(String stateName, int confirmed, int active, int recovered, int deceased) {
+        this.stateName = stateName;
+        this.confirmed = confirmed;
+        this.active = active;
+        this.recovered = recovered;
+        this.deceased = deceased;
     }
 
-    public String getPlanetName() {
-        return planetName;
+    public String getStateName() {
+        return stateName;
     }
 
-    public void setPlanetName(String planetName) {
-        this.planetName = planetName;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
-    public int getDistanceFromSun() {
-        return distanceFromSun;
+    public int getConfirmed() {
+        return confirmed;
     }
 
-    public void setDistanceFromSun(int distanceFromSun) {
-        this.distanceFromSun = distanceFromSun;
+    public void setConfirmed(int confirmed) {
+        this.confirmed = confirmed;
     }
 
-    public int getGravity() {
-        return gravity;
+    public int getActive() {
+        return active;
     }
 
-    public void setGravity(int gravity) {
-        this.gravity = gravity;
+    public void setActive(int active) {
+        this.active = active;
     }
 
-    public int getDiameter() {
-        return diameter;
+    public int getRecovered() {
+        return recovered;
     }
 
-    public void setDiameter(int diameter) {
-        this.diameter = diameter;
+    public void setRecovered(int recovered) {
+        this.recovered = recovered;
+    }
+
+    public int getDeceased() {
+        return deceased;
+    }
+
+    public void setDeceased(int deceased) {
+        this.deceased = deceased;
     }
 }

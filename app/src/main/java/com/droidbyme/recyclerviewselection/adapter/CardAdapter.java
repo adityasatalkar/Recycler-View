@@ -55,10 +55,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.PlanetHolder> 
         }
 
         void setDetails(Planet planet) {
-            txtName.setText(planet.getPlanetName());
-            txtDistance.setText(String.format(Locale.US, "Confirmed : %d", planet.getDistanceFromSun()));
-            txtGravity.setText(String.format(Locale.US, "Hospitalized : %d", planet.getGravity()));
-            txtDiameter.setText(String.format(Locale.US, "Deceased : %d", planet.getDiameter()));
+            txtName.setText(planet.getStateName());
+            txtDistance.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
+            txtGravity.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
+            txtDiameter.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
         }
     }
 }

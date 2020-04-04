@@ -55,10 +55,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
         }
 
         void setDetails(Planet planet) {
-            txtName.setText(planet.getPlanetName());
-            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getDistanceFromSun()));
-            txtHospitalized.setText(String.format(Locale.US, "Hospitalized : %d", planet.getGravity()));
-            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDiameter()));
+            txtName.setText(planet.getStateName());
+            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
+            txtHospitalized.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
+            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
         }
     }
 }

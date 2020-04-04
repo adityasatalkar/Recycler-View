@@ -54,7 +54,7 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
         Data data = gson.fromJson(jsonString, Data.class);
         List<Statewise> statewiseList = data.getStatewise();
         for (Statewise stateWiseObject: statewiseList) {
-            Planet planet = new Planet(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()),Integer.parseInt(stateWiseObject.getDeaths()));
+            Planet planet = new Planet(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()), Integer.parseInt(stateWiseObject.getRecovered()),Integer.parseInt(stateWiseObject.getDeaths()));
             planetArrayList.add(planet);
         }
 //        Planet planet = new Planet("Earth", 150, 10, 12750);

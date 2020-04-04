@@ -46,8 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             StrictMode.setThreadPolicy(policy);
             try {
                 initView();
-                tryTheApi();
-                Data data = getData();
+                //tryTheApi();
+                //Data data = getData();
+                //printAll(data);
             }
             catch (Exception e) {}
             startActivity(new Intent(MainActivity.this, NormalRecyclerViewActivity.class));
