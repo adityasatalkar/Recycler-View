@@ -1,6 +1,6 @@
 package com.droidbyme.recyclerviewselection.model;
 
-public class Planet {
+public class StateInformation {
 
     private String stateName;
     private int confirmed;
@@ -8,7 +8,7 @@ public class Planet {
     private int recovered;
     private int deceased;
 
-    public Planet(String stateName, int confirmed, int active, int recovered, int deceased) {
+    public StateInformation(String stateName, int confirmed, int active, int recovered, int deceased) {
         this.stateName = stateName;
         this.confirmed = confirmed;
         this.active = active;

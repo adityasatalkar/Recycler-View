@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.droidbyme.recyclerviewselection.R;
-import com.droidbyme.recyclerviewselection.model.Planet;
+import com.droidbyme.recyclerviewselection.model.StateInformation;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -17,11 +17,11 @@ import java.util.Locale;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.PlanetHolder> {
 
     private Context context;
-    private ArrayList<Planet> planets;
+    private ArrayList<StateInformation> stateInformations;
 
-    public CardAdapter(Context context, ArrayList<Planet> planets) {
+    public CardAdapter(Context context, ArrayList<StateInformation> stateInformations) {
         this.context = context;
-        this.planets = planets;
+        this.stateInformations = stateInformations;
     }
 
     @NonNull
@@ -33,13 +33,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.PlanetHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull PlanetHolder holder, int position) {
-        Planet planet = planets.get(position);
-        holder.setDetails(planet);
+        StateInformation stateInformation = stateInformations.get(position);
+        holder.setDetails(stateInformation);
     }
 
     @Override
     public int getItemCount() {
-        return planets.size();
+        return stateInformations.size();
     }
 
     class PlanetHolder extends RecyclerView.ViewHolder {
@@ -55,12 +55,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.PlanetHolder> 
             txtDeceased = itemView.findViewById(R.id.txtDeceased);
         }
 
-        void setDetails(Planet planet) {
-            txtName.setText(planet.getStateName());
-            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", planet.getConfirmed()));
-            txtActive.setText(String.format(Locale.US, "Hospitalized : %d", planet.getActive()));
-            txtRecovered.setText(String.format(Locale.US, "Recovered : %d", planet.getRecovered()));
-            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", planet.getDeceased()));
+        void setDetails(StateInformation stateInformation) {
+            txtName.setText(stateInformation.getStateName());
+            txtConfirmed.setText(String.format(Locale.US, "Confirmed : %d", stateInformation.getConfirmed()));
+            txtActive.setText(String.format(Locale.US, "Hospitalized : %d", stateInformation.getActive()));
+            txtRecovered.setText(String.format(Locale.US, "Recovered : %d", stateInformation.getRecovered()));
+            txtDeceased.setText(String.format(Locale.US, "Deceased : %d", stateInformation.getDeceased()));
         }
     }
 }

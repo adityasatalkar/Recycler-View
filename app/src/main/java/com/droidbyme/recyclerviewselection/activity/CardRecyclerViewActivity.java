@@ -9,22 +9,19 @@ import android.view.MenuItem;
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.adapter.CardAdapter;
 import com.droidbyme.recyclerviewselection.model.Data;
-import com.droidbyme.recyclerviewselection.model.Planet;
+import com.droidbyme.recyclerviewselection.model.StateInformation;
 import com.droidbyme.recyclerviewselection.model.Statewise;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.droidbyme.recyclerviewselection.activity.MainActivity.getData;
-import static com.droidbyme.recyclerviewselection.activity.MainActivity.getDistrictWiseData;
 
 public class CardRecyclerViewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CardAdapter adapter;
-    private ArrayList<Planet> planetArrayList;
+    private ArrayList<StateInformation> stateInformationArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +36,8 @@ public class CardRecyclerViewActivity extends AppCompatActivity {
     private void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        planetArrayList = new ArrayList<>();
-        adapter = new CardAdapter(this, planetArrayList);
+        stateInformationArrayList = new ArrayList<>();
+        adapter = new CardAdapter(this, stateInformationArrayList);
         recyclerView.setAdapter(adapter);
        // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         try {
@@ -55,9 +52,9 @@ public class CardRecyclerViewActivity extends AppCompatActivity {
         Data data = getData();
         List<Statewise> statewiseList = data.getStatewise();
         for (Statewise stateWiseObject: statewiseList) {
-            Planet planet = new Planet(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()),Integer.parseInt(stateWiseObject.getRecovered()),Integer.parseInt(stateWiseObject.getDeaths()));
+            StateInformation stateInformation = new StateInformation(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()),Integer.parseInt(stateWiseObject.getRecovered()),Integer.parseInt(stateWiseObject.getDeaths()));
             //DistrictWise districtWiseObject = getDistrictWiseData(stateWiseObject.getState());
-            planetArrayList.add(planet);
+            stateInformationArrayList.add(stateInformation);
         }
         adapter.notifyDataSetChanged();
     }
