@@ -8,9 +8,9 @@ import android.view.MenuItem;
 
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.adapter.CardAdapter;
-import com.droidbyme.recyclerviewselection.model.Data;
 import com.droidbyme.recyclerviewselection.model.StateInformation;
-import com.droidbyme.recyclerviewselection.model.Statewise;
+import com.droidbyme.recyclerviewselection.state.StateWiseData;
+import com.droidbyme.recyclerviewselection.state.Statewise;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class CardRecyclerViewActivity extends AppCompatActivity {
         initView();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Recycler View with Card View");
+        getSupportActionBar().setTitle("State Wise Card View");
     }
 
     private void initView() {
@@ -49,7 +49,7 @@ public class CardRecyclerViewActivity extends AppCompatActivity {
     }
 
     private void createListData() throws Exception {
-        Data data = getData();
+        StateWiseData data = getData();
         List<Statewise> statewiseList = data.getStatewise();
         for (Statewise stateWiseObject: statewiseList) {
             StateInformation stateInformation = new StateInformation(stateWiseObject.getState(),Integer.parseInt(stateWiseObject.getConfirmed()),Integer.parseInt(stateWiseObject.getActive()),Integer.parseInt(stateWiseObject.getRecovered()),Integer.parseInt(stateWiseObject.getDeaths()));

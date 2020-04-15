@@ -9,9 +9,9 @@ import android.view.MenuItem;
 
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.adapter.DataAdapter;
-import com.droidbyme.recyclerviewselection.model.Data;
 import com.droidbyme.recyclerviewselection.model.StateInformation;
-import com.droidbyme.recyclerviewselection.model.Statewise;
+import com.droidbyme.recyclerviewselection.state.Statewise;
+import com.droidbyme.recyclerviewselection.state.StateWiseData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_normal);
         initView();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Recycler View");
+        getSupportActionBar().setTitle("State Wise List");
     }
 
     private void initView() {
@@ -49,7 +49,7 @@ public class NormalRecyclerViewActivity extends AppCompatActivity {
     }
 
     private void createListData() throws Exception {
-        Data data = getData();
+        StateWiseData data = getData();
         List<Statewise> statewiseList = data.getStatewise();
 
         for (Statewise stateWiseObject: statewiseList) {

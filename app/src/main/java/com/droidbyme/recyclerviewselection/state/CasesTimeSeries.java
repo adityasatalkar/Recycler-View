@@ -1,4 +1,4 @@
-package com.droidbyme.recyclerviewselection.model;
+package com.droidbyme.recyclerviewselection.state;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

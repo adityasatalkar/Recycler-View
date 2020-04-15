@@ -1,4 +1,4 @@
-package com.droidbyme.recyclerviewselection.model;
+package com.droidbyme.recyclerviewselection.state;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -14,9 +14,15 @@ public class Statewise {
     @SerializedName("deaths")
     @Expose
     private String deaths;
-    @SerializedName("delta")
+    @SerializedName("deltaconfirmed")
     @Expose
-    private Delta delta;
+    private String deltaconfirmed;
+    @SerializedName("deltadeaths")
+    @Expose
+    private String deltadeaths;
+    @SerializedName("deltarecovered")
+    @Expose
+    private String deltarecovered;
     @SerializedName("lastupdatedtime")
     @Expose
     private String lastupdatedtime;
@@ -26,6 +32,12 @@ public class Statewise {
     @SerializedName("state")
     @Expose
     private String state;
+    @SerializedName("statecode")
+    @Expose
+    private String statecode;
+    @SerializedName("statenotes")
+    @Expose
+    private String statenotes;
 
     public String getActive() {
         return active;
@@ -51,12 +63,28 @@ public class Statewise {
         this.deaths = deaths;
     }
 
-    public Delta getDelta() {
-        return delta;
+    public String getDeltaconfirmed() {
+        return deltaconfirmed;
     }
 
-    public void setDelta(Delta delta) {
-        this.delta = delta;
+    public void setDeltaconfirmed(String deltaconfirmed) {
+        this.deltaconfirmed = deltaconfirmed;
+    }
+
+    public String getDeltadeaths() {
+        return deltadeaths;
+    }
+
+    public void setDeltadeaths(String deltadeaths) {
+        this.deltadeaths = deltadeaths;
+    }
+
+    public String getDeltarecovered() {
+        return deltarecovered;
+    }
+
+    public void setDeltarecovered(String deltarecovered) {
+        this.deltarecovered = deltarecovered;
     }
 
     public String getLastupdatedtime() {
@@ -81,5 +109,21 @@ public class Statewise {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getStatecode() {
+        return statecode;
+    }
+
+    public void setStatecode(String statecode) {
+        this.statecode = statecode;
+    }
+
+    public String getStatenotes() {
+        return statenotes;
+    }
+
+    public void setStatenotes(String statenotes) {
+        this.statenotes = statenotes;
     }
 }

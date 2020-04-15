@@ -1,18 +1,14 @@
-package com.droidbyme.recyclerviewselection.model;
+package com.droidbyme.recyclerviewselection.state;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class Data {
+public class StateWiseData {
 
     @SerializedName("cases_time_series")
     @Expose
     private List<CasesTimeSeries> casesTimeSeries = null;
-    @SerializedName("key_values")
-    @Expose
-    private List<KeyValue> keyValues = null;
     @SerializedName("statewise")
     @Expose
     private List<Statewise> statewise = null;
@@ -26,14 +22,6 @@ public class Data {
 
     public void setCasesTimeSeries(List<CasesTimeSeries> casesTimeSeries) {
         this.casesTimeSeries = casesTimeSeries;
-    }
-
-    public List<KeyValue> getKeyValues() {
-        return keyValues;
-    }
-
-    public void setKeyValues(List<KeyValue> keyValues) {
-        this.keyValues = keyValues;
     }
 
     public List<Statewise> getStatewise() {

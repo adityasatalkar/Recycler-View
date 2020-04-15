@@ -8,8 +8,8 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
 import com.droidbyme.recyclerviewselection.R;
-import com.droidbyme.recyclerviewselection.model.Data;
-import com.droidbyme.recyclerviewselection.model.Statewise;
+import com.droidbyme.recyclerviewselection.state.StateWiseData;
+import com.droidbyme.recyclerviewselection.state.Statewise;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 initView();
                 //tryTheApi();
-                //Data data = getData();
+                //StateWiseData data = getData();
                 //printAll(data);
             }
             catch (Exception e) {}
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             String jsonString = ApiCall.getDataFromApi(ApiCall.DATA_URL);
 
-            Data data = gson.fromJson(jsonString, Data.class);
+            StateWiseData data = gson.fromJson(jsonString, StateWiseData.class);
 
             List<Statewise> statewiseList = data.getStatewise();
 
@@ -124,12 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public static Data getData() throws Exception {
+    public static StateWiseData getData() throws Exception {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         String jsonString = ApiCall.getDataFromApi(ApiCall.DATA_URL);
 
-        Data data = gson.fromJson(jsonString, Data.class);
+        StateWiseData data = gson.fromJson(jsonString, StateWiseData.class);
 
         return data;
     }
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return null;
     }
 
-    public static void printAll(Data data) {
+    public static void printAll(StateWiseData data) {
         List<Statewise> statewiseList = data.getStatewise();
 
         try {

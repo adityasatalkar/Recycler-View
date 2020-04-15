@@ -1,13 +1,22 @@
-package com.droidbyme.recyclerviewselection.model;
+package com.droidbyme.recyclerviewselection.state;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Tested {
 
+    @SerializedName("positivecasesfromsamplesreported")
+    @Expose
+    private String positivecasesfromsamplesreported;
+    @SerializedName("samplereportedtoday")
+    @Expose
+    private String samplereportedtoday;
     @SerializedName("source")
     @Expose
     private String source;
+    @SerializedName("testsconductedbyprivatelabs")
+    @Expose
+    private String testsconductedbyprivatelabs;
     @SerializedName("totalindividualstested")
     @Expose
     private String totalindividualstested;
@@ -21,12 +30,36 @@ public class Tested {
     @Expose
     private String updatetimestamp;
 
+    public String getPositivecasesfromsamplesreported() {
+        return positivecasesfromsamplesreported;
+    }
+
+    public void setPositivecasesfromsamplesreported(String positivecasesfromsamplesreported) {
+        this.positivecasesfromsamplesreported = positivecasesfromsamplesreported;
+    }
+
+    public String getSamplereportedtoday() {
+        return samplereportedtoday;
+    }
+
+    public void setSamplereportedtoday(String samplereportedtoday) {
+        this.samplereportedtoday = samplereportedtoday;
+    }
+
     public String getSource() {
         return source;
     }
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getTestsconductedbyprivatelabs() {
+        return testsconductedbyprivatelabs;
+    }
+
+    public void setTestsconductedbyprivatelabs(String testsconductedbyprivatelabs) {
+        this.testsconductedbyprivatelabs = testsconductedbyprivatelabs;
     }
 
     public String getTotalindividualstested() {
