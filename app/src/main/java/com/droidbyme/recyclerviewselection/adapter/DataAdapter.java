@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.droidbyme.recyclerviewselection.R;
 import com.droidbyme.recyclerviewselection.model.StateInformation;
@@ -45,6 +47,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
     class DataHolder extends RecyclerView.ViewHolder {
 
         private TextView txtName, txtConfirmed, txtActive, txtRecovered, txtDeceased;
+        private LinearLayout stateLinearLayoutView;
 
         DataHolder(View itemView) {
             super(itemView);
@@ -53,6 +56,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
             txtActive = itemView.findViewById(R.id.txtActive);
             txtRecovered = itemView.findViewById(R.id.txtRecovered);
             txtDeceased = itemView.findViewById(R.id.txtDeceased);
+            stateLinearLayoutView = itemView.findViewById(R.id.stateLinearLayoutView);
+
+            stateLinearLayoutView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context,txtName.getText() + " Selected", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         void setDetails(StateInformation stateInformation) {
