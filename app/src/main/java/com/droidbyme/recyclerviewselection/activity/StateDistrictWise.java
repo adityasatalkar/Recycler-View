@@ -1,6 +1,8 @@
 package com.droidbyme.recyclerviewselection.activity;
 
 import java.util.List;
+
+import com.droidbyme.recyclerviewselection.district.DistrictWise;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -1,6 +1,7 @@
 package com.droidbyme.recyclerviewselection.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.droidbyme.recyclerviewselection.R;
+import com.droidbyme.recyclerviewselection.activity.DistrictViewActivity;
 import com.droidbyme.recyclerviewselection.model.StateInformation;
 
 import java.util.ArrayList;
@@ -62,6 +64,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataHolder> {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context,txtName.getText() + " Selected", Toast.LENGTH_SHORT).show();
+
+//                    Intent intent = new Intent(context, DistrictViewActivity.class);
+//                    intent.putExtra("stateName", txtName.getText());
+//                    context.startActivity(intent);
                 }
             });
         }
