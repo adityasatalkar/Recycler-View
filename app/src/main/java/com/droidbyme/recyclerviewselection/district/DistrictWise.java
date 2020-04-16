@@ -1,4 +1,4 @@
-package com.droidbyme.recyclerviewselection.activity;
+package com.droidbyme.recyclerviewselection.district;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

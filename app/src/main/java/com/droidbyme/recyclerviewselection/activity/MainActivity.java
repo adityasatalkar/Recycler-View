@@ -8,6 +8,8 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
 import com.droidbyme.recyclerviewselection.R;
+import com.droidbyme.recyclerviewselection.district.DistrictDatum;
+import com.droidbyme.recyclerviewselection.district.DistrictWise;
 import com.droidbyme.recyclerviewselection.state.StateWiseData;
 import com.droidbyme.recyclerviewselection.state.Statewise;
 import com.google.gson.Gson;
