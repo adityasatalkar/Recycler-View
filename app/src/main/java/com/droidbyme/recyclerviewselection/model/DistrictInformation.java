@@ -2,20 +2,20 @@ package com.droidbyme.recyclerviewselection.model;
 
 public class DistrictInformation {
 
-    private String stateName;
+    private String districtName;
     private int confirmed;
 
-    public DistrictInformation(String stateName, int confirmed) {
-        this.stateName = stateName;
+    public DistrictInformation(String districtName, int confirmed) {
+        this.districtName = districtName;
         this.confirmed = confirmed;
     }
 
-    public String getStateName() {
-        return stateName;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 
     public int getConfirmed() {
